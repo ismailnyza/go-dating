@@ -5,10 +5,12 @@ import (
 	"fmt"
 	"os"
 	"os/signal"
-// 	"sample-proj/config"
+	"sample-proj/internal/interfaces/route"
+
+	// 	"sample-proj/config"
 	"syscall"
 
-//	"git.mytaxi.lk/pickme/go/util/router"
+	//	"git.mytaxi.lk/pickme/go/util/router"
 	"github.com/google/uuid"
 )
 
@@ -28,25 +30,12 @@ func Init() {
     defer cancel()
     fmt.Println("server started" , ctx.Value("requestID"))
 
-    // initialize 3 addapters for the application
 
-    // db connections
-
-    // defer a connection close 
-    //garuntees that the connection is closed after the function returns  
-    // defer db.Close()
-
-    // init configs
-    // devopsConfig , err := config.ReadConfig()
-   
-    // handle when the server has been shut down
-
-    // initialize the routers 
-
-    select {
-    case <-sigs:
-    fmt.Println("terminating the server")
-     // route.StopServer(ctx)
+    //start the server
+    route.HandleRequest()
+    
+    if <-sigs != nil {
+        fmt.Println("server stopped")
     }
  
 }

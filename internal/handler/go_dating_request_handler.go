@@ -3,7 +3,7 @@ package handler
 import (
 	// "fmt"
 	"sample-proj/internal/interfaces/endpoints/helloworld"
-	"sample-proj/services"
+	HelloWorldService "sample-proj/services"
 
 	httpTransport "github.com/go-kit/kit/transport/http"
 )
@@ -21,7 +21,7 @@ var options = []httpTransport.ServerOption{
 // function to handle the hello world request
 func HelloWorldHandler() *httpTransport.Server{
     return httpTransport.NewServer(
-        helloworld.HelloWorldEndpoint( &services.HelloWorldService{}), 
+        helloworld.HelloWorldEndpoint( &HelloWorldService.HelloWorldService{}), 
         helloworld.DecodeHelloWorldRequest,
         helloworld.EncodeHelloWorldResponse,
         options..., 

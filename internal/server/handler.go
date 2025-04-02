@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"sample-proj/internal/interfaces/endpoints/helloworld"
+	HelloWorldService "sample-proj/services"
 
 	// "git.mytaxi.lk/pickme/go/util/request"
 	httpTransport "github.com/go-kit/kit/transport/http"
@@ -25,9 +26,11 @@ httpTransport.ServerBefore(func(ctx context.Context, _ *http.Request) context.Co
 
 func HelloWorldHandler() *httpTransport.Server{
     return httpTransport.NewServer(
-        helloworld.HelloWorldEndpoint( &helloworld.HelloWorldService{}), 
+        helloworld.HelloWorldEndpoint( &HelloWorldService.HelloWorldService{}), 
         helloworld.DecodeHelloWorldRequest,
         helloworld.EncodeHelloWorldResponse,
         options..., 
         )
     }
+
+

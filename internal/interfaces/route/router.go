@@ -20,6 +20,7 @@ func HandleRequest(ctx context.Context){
     // api := router.PathPrefix("/api/v1").Subrouter()
     router.Handle("/helloworld", handler.HelloWorldHandler()).Methods(http.MethodGet)
 
+    router.Handle("/getUsers", handler.GetUsersHandler()).Methods(http.MethodGet)
     StartServer(port, router, ctx)
 }
 

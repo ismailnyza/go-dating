@@ -27,3 +27,17 @@ func HelloWorldHandler() *httpTransport.Server{
         options..., 
         )
 }
+
+// function to handle the get users request
+func GetUsersHandler() *httpTransport.Server{
+//     return httpTransport.NewServer(
+//         getUsers.GetUsersEndpoint( &GetUsersService.GetUsersService{}),
+//         )
+
+    return httpTransport.NewServer(
+        helloworld.HelloWorldEndpoint( &HelloWorldService.HelloWorldService{}), 
+        helloworld.DecodeHelloWorldRequest,
+        helloworld.EncodeHelloWorldResponse,
+        options..., 
+        )
+}

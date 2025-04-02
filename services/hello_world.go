@@ -1,4 +1,4 @@
-package HelloWorldService
+package Services
 
 import "context"
 

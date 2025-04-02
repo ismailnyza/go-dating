@@ -1,7 +1,7 @@
 package main
 
 import (
-	"sample-proj/internal"
+"sample-proj/internal"
 )
 
 func main() {
